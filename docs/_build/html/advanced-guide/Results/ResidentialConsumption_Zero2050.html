@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; MUSE 0.9 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css" />
+    
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">MUSE 0.9 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">&lt;no title&gt;</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p>Hello, you!</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                   <span class="n">region</span> <span class="n">units_prices</span>  \
+</pre></div>
+</div>
+<p>year asset commodity<br />2050 0     electricity     R1  MUS$2010/PJ<br />gas             R1  MUS$2010/PJ<br />heat            R1  MUS$2010/PJ<br />CO2f            R1  MUS$2010/kt<br />1     electricity     R1  MUS$2010/PJ<br />…                       …          …<br />2055 6     CO2f            R1  MUS$2010/kt<br />7     electricity     R1  MUS$2010/PJ<br />gas             R1  MUS$2010/PJ<br />heat            R1  MUS$2010/PJ<br />CO2f            R1  MUS$2010/kt</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                                              <span class="n">comm_usage</span>  <span class="n">installed</span>  \
+</pre></div>
+</div>
+<p>year asset commodity<br />2050 0     electricity      CommodityUsage.ENERGY|CONSUMABLE       2035<br />gas              CommodityUsage.ENERGY|CONSUMABLE       2035<br />heat                CommodityUsage.ENERGY|PRODUCT       2035<br />CO2f         CommodityUsage.ENVIRONMENTAL|PRODUCT       2035<br />1     electricity      CommodityUsage.ENERGY|CONSUMABLE       2035<br />…                                                      …        …<br />2055 6     CO2f         CommodityUsage.ENVIRONMENTAL|PRODUCT       2050<br />7     electricity      CommodityUsage.ENERGY|CONSUMABLE       2050<br />gas              CommodityUsage.ENERGY|CONSUMABLE       2050<br />heat                CommodityUsage.ENERGY|PRODUCT       2050<br />CO2f         CommodityUsage.ENVIRONMENTAL|PRODUCT       2050</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                   <span class="n">technology</span>  <span class="n">consumption</span>  
+</pre></div>
+</div>
+<p>year asset commodity<br />2050 0     electricity  gasboiler       0.0000<br />gas          gasboiler       0.0000<br />heat         gasboiler       0.0000<br />CO2f         gasboiler       0.0000<br />1     electricity   heatpump       0.0000<br />…                           …          …<br />2055 6     CO2f         gasboiler       0.0000<br />7     electricity   heatpump       6.8889<br />gas           heatpump       0.0000<br />heat          heatpump       0.0000<br />CO2f          heatpump       0.0000</p>
+<p>[64 rows x 6 columns]</p>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/advanced-guide/Results/ResidentialConsumption_Zero2050.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">MUSE 0.9 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">&lt;no title&gt;</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Sustainable Gas Institute.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.1.
+    </div>
+  </body>
+</html>

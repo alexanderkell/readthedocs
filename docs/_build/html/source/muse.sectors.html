@@ -1,0 +1,1010 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>muse.sectors package &#8212; MUSE 0.9 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MUSE 0.9 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">muse.sectors package</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="muse-sectors-package">
+<h1>muse.sectors package<a class="headerlink" href="#muse-sectors-package" title="Permalink to this headline">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-muse.sectors.abstract">
+<span id="muse-sectors-abstract-module"></span><h2>muse.sectors.abstract module<a class="headerlink" href="#module-muse.sectors.abstract" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="muse.sectors.abstract.AbstractSector">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">AbstractSector</span></span><a class="reference internal" href="../_modules/muse/sectors/abstract.html#AbstractSector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.abstract.AbstractSector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Abstract base class for sectors.</p>
+<p>Sectors are part of type hierarchy with <a class="reference internal" href="#muse.sectors.abstract.AbstractSector" title="muse.sectors.abstract.AbstractSector"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractSector</span></code></a> at the apex: all
+sectors should derive from <a class="reference internal" href="#muse.sectors.abstract.AbstractSector" title="muse.sectors.abstract.AbstractSector"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractSector</span></code></a> directly or indirectly.</p>
+<p>MUSE only requires two things of a sector. Sector should be instanstiable via a
+<a class="reference internal" href="#muse.sectors.abstract.AbstractSector.factory" title="muse.sectors.abstract.AbstractSector.factory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">factory()</span></code></a> function. And they should be callable via
+<a class="reference internal" href="#muse.sectors.abstract.AbstractSector.next" title="muse.sectors.abstract.AbstractSector.next"><code class="xref py py-meth docutils literal notranslate"><span class="pre">next()</span></code></a>.</p>
+<p><a class="reference internal" href="#muse.sectors.abstract.AbstractSector" title="muse.sectors.abstract.AbstractSector"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractSector</span></code></a> declares an interface with these two functions. Sectors
+which derive from it will be warned if either method is not implemented.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.abstract.AbstractSector.factory">
+<em class="property"><span class="pre">abstract</span> <span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">factory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/abstract.html#AbstractSector.factory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.abstract.AbstractSector.factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates class from settings named-tuple.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.abstract.AbstractSector.next">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mca_market</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/abstract.html#AbstractSector.next"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.abstract.AbstractSector.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Advance sector by one time period.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-muse.sectors.legacy_sector">
+<span id="muse-sectors-legacy-sector-module"></span><h2>muse.sectors.legacy_sector module<a class="headerlink" href="#module-muse.sectors.legacy_sector" title="Permalink to this headline">¶</a></h2>
+<p>This module defines the LegacySector class, needed to interface the new MCA
+with the old MUSE sectors.</p>
+<p>It can be deleted once accessing those sectors is no longer needed.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacyMarket">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">LegacyMarket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">BaseYear</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">EndYear</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">Foresight</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">TimeFramework</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">YearlyTimeFramework</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">NYears</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">GlobalCommoditiesAttributes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">CommoditiesBudget</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">macro_drivers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dfRegions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Regions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation_mode</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/legacy_sector.html#LegacyMarket"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.legacy_sector.LegacyMarket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacyMarket.BaseYear">
+<span class="sig-name descname"><span class="pre">BaseYear</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><span class="pre">int</span></a></em><a class="headerlink" href="#muse.sectors.legacy_sector.LegacyMarket.BaseYear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacyMarket.CommoditiesBudget">
+<span class="sig-name descname"><span class="pre">CommoditiesBudget</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a></em><a class="headerlink" href="#muse.sectors.legacy_sector.LegacyMarket.CommoditiesBudget" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacyMarket.EndYear">
+<span class="sig-name descname"><span class="pre">EndYear</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><span class="pre">int</span></a></em><a class="headerlink" href="#muse.sectors.legacy_sector.LegacyMarket.EndYear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacyMarket.Foresight">
+<span class="sig-name descname"><span class="pre">Foresight</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a></em><a class="headerlink" href="#muse.sectors.legacy_sector.LegacyMarket.Foresight" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacyMarket.GlobalCommoditiesAttributes">
+<span class="sig-name descname"><span class="pre">GlobalCommoditiesAttributes</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a></em><a class="headerlink" href="#muse.sectors.legacy_sector.LegacyMarket.GlobalCommoditiesAttributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacyMarket.NYears">
+<span class="sig-name descname"><span class="pre">NYears</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a></em><a class="headerlink" href="#muse.sectors.legacy_sector.LegacyMarket.NYears" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacyMarket.Regions">
+<span class="sig-name descname"><span class="pre">Regions</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a></em><a class="headerlink" href="#muse.sectors.legacy_sector.LegacyMarket.Regions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacyMarket.TimeFramework">
+<span class="sig-name descname"><span class="pre">TimeFramework</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a></em><a class="headerlink" href="#muse.sectors.legacy_sector.LegacyMarket.TimeFramework" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacyMarket.YearlyTimeFramework">
+<span class="sig-name descname"><span class="pre">YearlyTimeFramework</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a></em><a class="headerlink" href="#muse.sectors.legacy_sector.LegacyMarket.YearlyTimeFramework" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacyMarket.dfRegions">
+<span class="sig-name descname"><span class="pre">dfRegions</span></span><em class="property"><span class="pre">:</span> <span class="pre">pandas.core.frame.DataFrame</span></em><a class="headerlink" href="#muse.sectors.legacy_sector.LegacyMarket.dfRegions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacyMarket.interpolation_mode">
+<span class="sig-name descname"><span class="pre">interpolation_mode</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></em><a class="headerlink" href="#muse.sectors.legacy_sector.LegacyMarket.interpolation_mode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacyMarket.macro_drivers">
+<span class="sig-name descname"><span class="pre">macro_drivers</span></span><em class="property"><span class="pre">:</span> <span class="pre">pandas.core.frame.DataFrame</span></em><a class="headerlink" href="#muse.sectors.legacy_sector.LegacyMarket.macro_drivers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">LegacySector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_sector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeslices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commodities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commodity_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">static_trade</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_framework</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">market_iterative</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sectors_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/legacy_sector.html#LegacySector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#muse.sectors.abstract.AbstractSector" title="muse.sectors.abstract.AbstractSector"><code class="xref py py-class docutils literal notranslate"><span class="pre">muse.sectors.abstract.AbstractSector</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.calibrated">
+<span class="sig-name descname"><span class="pre">calibrated</span></span><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.calibrated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag if the sector has gone through the calibration process.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.commodities">
+<span class="sig-name descname"><span class="pre">commodities</span></span><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.commodities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Commodities for each sector, as well as global commodities.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.commodity_price">
+<span class="sig-name descname"><span class="pre">commodity_price</span></span><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.commodity_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initial price of all the commodities.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.dims">
+<span class="sig-name descname"><span class="pre">dims</span></span><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.dims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Order of the input and output dimensions.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.excess">
+<span class="sig-name descname"><span class="pre">excess</span></span><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.excess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allowed excess of capacity.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.factory">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">factory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/legacy_sector.html#LegacySector.factory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates class from settings named-tuple.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.global_commodities">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">global_commodities</span></span><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.global_commodities" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all commodities used by the MCA.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.inputs">
+<span class="sig-name descname"><span class="pre">inputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">consumption</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supply</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/legacy_sector.html#LegacySector.inputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts xarray to MUSE numpy input arrays.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.load_timeslices_and_aggregation">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">load_timeslices_and_aggregation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeslices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sectors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/legacy_sector.html#LegacySector.load_timeslices_and_aggregation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.load_timeslices_and_aggregation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads all sector timeslices and finds the finest one.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.market_iterative">
+<span class="sig-name descname"><span class="pre">market_iterative</span></span><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.market_iterative" title="Permalink to this definition">¶</a></dt>
+<dd><p>—–&gt; TODO what’s this parameter?</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.mode">
+<span class="sig-name descname"><span class="pre">mode</span></span><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>If ‘Calibration’, the sector runs in calibration mode</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the sector</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.next">
+<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">market</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/legacy_sector.html#LegacySector.next"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adapter between the old and the new.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.old_sector">
+<span class="sig-name descname"><span class="pre">old_sector</span></span><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.old_sector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Legacy sector method to run the calculation</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.output_dir">
+<span class="sig-name descname"><span class="pre">output_dir</span></span><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.output_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Outputs directory.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.outputs">
+<span class="sig-name descname"><span class="pre">outputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">consumption</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supply</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/legacy_sector.html#LegacySector.outputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.outputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts MUSE numpy outputs to xarray.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.regions">
+<span class="sig-name descname"><span class="pre">regions</span></span><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.regions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Regions taking part in the simulation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.runprocessmodule">
+<span class="sig-name descname"><span class="pre">runprocessmodule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">consumption</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supplycost</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supply</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/legacy_sector.html#LegacySector.runprocessmodule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.runprocessmodule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.sector_commodities">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sector_commodities</span></span><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.sector_commodities" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all commodities used by the Sector.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.sector_timeslices">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sector_timeslices</span></span><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.sector_timeslices" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all commodities used by the MCA.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.sectors_dir">
+<span class="sig-name descname"><span class="pre">sectors_dir</span></span><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.sectors_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sectors directory.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.static_trade">
+<span class="sig-name descname"><span class="pre">static_trade</span></span><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.static_trade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Static trade needed for the conversion and supply sectors.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.time_framework">
+<span class="sig-name descname"><span class="pre">time_framework</span></span><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.time_framework" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time framework of the complete simulation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.LegacySector.timeslices">
+<span class="sig-name descname"><span class="pre">timeslices</span></span><a class="headerlink" href="#muse.sectors.legacy_sector.LegacySector.timeslices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timeslices for sectors and mca.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.commodities_idx">
+<span class="sig-name descname"><span class="pre">commodities_idx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comm</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/legacy_sector.html#commodities_idx"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.legacy_sector.commodities_idx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the indeces of the commodities involved in the processes of the
+sector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sector</strong> – The old MUSE sector of interest</p></li>
+<li><p><strong>comm</strong> – Either “OUT”, “IN” or “NotENV”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list with the indexes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.ndarray_to_xarray">
+<span class="sig-name descname"><span class="pre">ndarray_to_xarray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">years</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_commodities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sector_commodities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dims</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/legacy_sector.html#ndarray_to_xarray"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.legacy_sector.ndarray_to_xarray" title="Permalink to this definition">¶</a></dt>
+<dd><p>From ndarray to dataarray.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="muse.sectors.legacy_sector.xarray_to_ndarray">
+<span class="sig-name descname"><span class="pre">xarray_to_ndarray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">years</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_commodities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dims</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/legacy_sector.html#xarray_to_ndarray"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.legacy_sector.xarray_to_ndarray" title="Permalink to this definition">¶</a></dt>
+<dd><p>From dataarray to ndarray.</p>
+</dd></dl>
+
+</section>
+<section id="module-muse.sectors.preset_sector">
+<span id="muse-sectors-preset-sector-module"></span><h2>muse.sectors.preset_sector module<a class="headerlink" href="#module-muse.sectors.preset_sector" title="Permalink to this headline">¶</a></h2>
+<p>Sector with preset behaviours.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="muse.sectors.preset_sector.PresetSector">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">PresetSector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">presets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'preset'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/preset_sector.html#PresetSector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.preset_sector.PresetSector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#muse.sectors.abstract.AbstractSector" title="muse.sectors.abstract.AbstractSector"><code class="xref py py-class docutils literal notranslate"><span class="pre">muse.sectors.abstract.AbstractSector</span></code></a></p>
+<p>Sector with outcomes fixed from the start.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.preset_sector.PresetSector.factory">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">factory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/preset_sector.html#PresetSector.factory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.preset_sector.PresetSector.factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a PresetSectors from input data.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.preset_sector.PresetSector.interpolation_mode">
+<span class="sig-name descname"><span class="pre">interpolation_mode</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></em><a class="headerlink" href="#muse.sectors.preset_sector.PresetSector.interpolation_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolation method</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.preset_sector.PresetSector.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#muse.sectors.preset_sector.PresetSector.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name by which to identify a sector</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.preset_sector.PresetSector.next">
+<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mca_market</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/preset_sector.html#PresetSector.next"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.preset_sector.PresetSector.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Advance sector by one time period.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.preset_sector.PresetSector.presets">
+<span class="sig-name descname"><span class="pre">presets</span></span><em class="property"><span class="pre">:</span> <span class="pre">xarray.core.dataset.Dataset</span></em><a class="headerlink" href="#muse.sectors.preset_sector.PresetSector.presets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Market across time and space.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-muse.sectors.register">
+<span id="muse-sectors-register-module"></span><h2>muse.sectors.register module<a class="headerlink" href="#module-muse.sectors.register" title="Permalink to this headline">¶</a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="muse.sectors.register.SECTORS_REGISTERED">
+<span class="sig-name descname"><span class="pre">SECTORS_REGISTERED</span></span><em class="property"><span class="pre">:</span> <span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{'default':</span> <span class="pre">&lt;bound</span> <span class="pre">method</span> <span class="pre">Sector.factory</span> <span class="pre">of</span> <span class="pre">&lt;class</span> <span class="pre">'muse.sectors.sector.Sector'&gt;&gt;,</span> <span class="pre">'legacy':</span> <span class="pre">&lt;bound</span> <span class="pre">method</span> <span class="pre">LegacySector.factory</span> <span class="pre">of</span> <span class="pre">&lt;class</span> <span class="pre">'muse.sectors.legacy_sector.LegacySector'&gt;&gt;,</span> <span class="pre">'preset':</span> <span class="pre">&lt;bound</span> <span class="pre">method</span> <span class="pre">PresetSector.factory</span> <span class="pre">of</span> <span class="pre">&lt;class</span> <span class="pre">'muse.sectors.preset_sector.PresetSector'&gt;&gt;,</span> <span class="pre">'presets':</span> <span class="pre">&lt;bound</span> <span class="pre">method</span> <span class="pre">PresetSector.factory</span> <span class="pre">of</span> <span class="pre">&lt;class</span> <span class="pre">'muse.sectors.preset_sector.PresetSector'&gt;&gt;}</span></em><a class="headerlink" href="#muse.sectors.register.SECTORS_REGISTERED" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary of sectors.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="muse.sectors.register.register_sector">
+<span class="sig-name descname"><span class="pre">register_sector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sector_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/register.html#register_sector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.register.register_sector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a sector so it is available MUSE-wide.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">muse.sectors</span> <span class="kn">import</span> <span class="n">AbstractSector</span><span class="p">,</span> <span class="n">register_sector</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@register_sector</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;MyResidence&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">class</span> <span class="nc">ResidentialSector</span><span class="p">(</span><span class="n">AbstractSector</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">pass</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-muse.sectors.sector">
+<span id="muse-sectors-sector-module"></span><h2>muse.sectors.sector module<a class="headerlink" href="#module-muse.sectors.sector" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="muse.sectors.sector.Sector">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Sector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">technologies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subsectors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeslices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">technodata_timeslices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interactions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supply_prod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/sector.html#Sector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.sector.Sector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#muse.sectors.abstract.AbstractSector" title="muse.sectors.abstract.AbstractSector"><code class="xref py py-class docutils literal notranslate"><span class="pre">muse.sectors.abstract.AbstractSector</span></code></a></p>
+<p>Base class for all sectors.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="muse.sectors.sector.Sector.agents">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">agents</span></span><em class="property"><span class="pre">:</span> <span class="pre">Iterator[muse.agents.agent.AbstractAgent]</span></em><a class="headerlink" href="#muse.sectors.sector.Sector.agents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterator over all agents in the sector.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="muse.sectors.sector.Sector.capacity">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">capacity</span></span><em class="property"><span class="pre">:</span> <span class="pre">xarray.core.dataarray.DataArray</span></em><a class="headerlink" href="#muse.sectors.sector.Sector.capacity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aggregates capacity across agents.</p>
+<p>The capacities are aggregated leaving only two
+dimensions: asset (technology, installation date,
+region), year.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.sector.Sector.convert_market_timeslice">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">convert_market_timeslice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">market</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeslice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intensive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'prices'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/sector.html#Sector.convert_market_timeslice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.sector.Sector.convert_market_timeslice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts market from one to another timeslice.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.sector.Sector.factory">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">factory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/sector.html#Sector.factory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.sector.Sector.factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates class from settings named-tuple.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="muse.sectors.sector.Sector.forecast">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">forecast</span></span><a class="headerlink" href="#muse.sectors.sector.Sector.forecast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum forecast horizon across agents.</p>
+<p>If no agents with a “forecast” attribute are found, defaults to 5. It cannot be
+lower than 1 year.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.sector.Sector.interactions">
+<span class="sig-name descname"><span class="pre">interactions</span></span><a class="headerlink" href="#muse.sectors.sector.Sector.interactions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interactions between agents.</p>
+<p>Called right before computing new investments, this function should manage any
+interactions between agents, e.g. passing assets from <em>new</em> agents  to <em>retro</em>
+agents, and maket make-up from <em>retro</em> to <em>new</em>.</p>
+<p>Defaults to doing nothing.</p>
+<p>The function takes the sequence of agents as input, and returns nothing. It is
+expected to modify the agents in-place.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../api.html#module-muse.interactions" title="muse.interactions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">muse.interactions</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.sector.Sector.interpolation">
+<span class="sig-name descname"><span class="pre">interpolation</span></span><em class="property"><span class="pre">:</span> <span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#muse.sectors.sector.Sector.interpolation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolation method and arguments when computing years.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.sector.Sector.market_variables">
+<span class="sig-name descname"><span class="pre">market_variables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">market</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">technologies</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/sector.html#Sector.market_variables"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.sector.Sector.market_variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes resulting market: production, consumption, and costs.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.sector.Sector.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></em><a class="headerlink" href="#muse.sectors.sector.Sector.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the sector.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.sector.Sector.next">
+<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mca_market</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_year</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/sector.html#Sector.next"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.sector.Sector.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Advance sector by one time period.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mca_market</strong> – Market with <code class="docutils literal notranslate"><span class="pre">demand</span></code>, <code class="docutils literal notranslate"><span class="pre">supply</span></code>, and <code class="docutils literal notranslate"><span class="pre">prices</span></code>.</p></li>
+<li><p><strong>time_period</strong> – Length of the time period in the framework. Defaults to the range of
+<code class="docutils literal notranslate"><span class="pre">mca_market.year</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A market containing the <code class="docutils literal notranslate"><span class="pre">supply</span></code> offered by the sector, it’s attendant
+<code class="docutils literal notranslate"><span class="pre">consumption</span></code> of fuels and materials and the associated <code class="docutils literal notranslate"><span class="pre">costs</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.sector.Sector.outputs">
+<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="pre">:</span> <span class="pre">Callable</span></em><a class="headerlink" href="#muse.sectors.sector.Sector.outputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for outputing data for post-mortem analysis.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.sector.Sector.subsectors">
+<span class="sig-name descname"><span class="pre">subsectors</span></span><em class="property"><span class="pre">:</span> <span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#muse.sectors.subsector.Subsector" title="muse.sectors.subsector.Subsector"><span class="pre">muse.sectors.subsector.Subsector</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#muse.sectors.sector.Sector.subsectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subsectors controlled by this object.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.sector.Sector.supply_prod">
+<span class="sig-name descname"><span class="pre">supply_prod</span></span><a class="headerlink" href="#muse.sectors.sector.Sector.supply_prod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes production as used to return the supply to the MCA.</p>
+<p>It can be anything registered with
+<a class="reference internal" href="../api.html#muse.production.register_production" title="muse.production.register_production"><code class="xref py py-func docutils literal notranslate"><span class="pre">&#64;register_production</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.sector.Sector.technologies">
+<span class="sig-name descname"><span class="pre">technologies</span></span><em class="property"><span class="pre">:</span> <span class="pre">xarray.core.dataset.Dataset</span></em><a class="headerlink" href="#muse.sectors.sector.Sector.technologies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parameters describing the sector’s technologies.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.sector.Sector.timeslices">
+<span class="sig-name descname"><span class="pre">timeslices</span></span><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">pandas.core.indexes.multi.MultiIndex</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#muse.sectors.sector.Sector.timeslices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timeslice at which this sector operates.</p>
+<p>If None, it will operate using the timeslice of the input market.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-muse.sectors.subsector">
+<span id="muse-sectors-subsector-module"></span><h2>muse.sectors.subsector module<a class="headerlink" href="#module-muse.sectors.subsector" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="muse.sectors.subsector.Subsector">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Subsector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">agents</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commodities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">demand_share</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constraints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">investment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'subsector'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forecast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand_market_prices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/subsector.html#Subsector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.subsector.Subsector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Agent group servicing a subset of the sectorial commodities.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.subsector.Subsector.aggregate_lp">
+<span class="sig-name descname"><span class="pre">aggregate_lp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">technologies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">market</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_year</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/subsector.html#Subsector.aggregate_lp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.subsector.Subsector.aggregate_lp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.subsector.Subsector.assign_back_to_agents">
+<span class="sig-name descname"><span class="pre">assign_back_to_agents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">technologies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_period</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/subsector.html#Subsector.assign_back_to_agents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.subsector.Subsector.assign_back_to_agents" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.subsector.Subsector.expand_market_prices">
+<span class="sig-name descname"><span class="pre">expand_market_prices</span></span><a class="headerlink" href="#muse.sectors.subsector.Subsector.expand_market_prices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wether to expand prices to include destination region.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the input market prices are expanded of the missing “dst_region”
+dimension by setting them to the maximum between the source and destination
+region.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.subsector.Subsector.factory">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">factory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">settings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">technologies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_year</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'subsector'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/subsector.html#Subsector.factory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.subsector.Subsector.factory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.subsector.Subsector.invest">
+<span class="sig-name descname"><span class="pre">invest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">technologies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">market</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_year</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/subsector.html#Subsector.invest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.subsector.Subsector.invest" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="muse.sectors.subsector.aggregate_enduses">
+<span class="sig-name descname"><span class="pre">aggregate_enduses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">assets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">technologies</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/subsector.html#aggregate_enduses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.subsector.aggregate_enduses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aggregate enduse commodities for input assets.</p>
+<p>This function is meant as a helper to figure out the commodities attached to a group
+of agents.</p>
+</dd></dl>
+
+</section>
+<section id="module-muse.sectors">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-muse.sectors" title="Permalink to this headline">¶</a></h2>
+<p>Define a sector, e.g. aggregation of agents.</p>
+<p>There are three main kinds of sectors classes, encompassing three use cases:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#muse.sectors.sector.Sector" title="muse.sectors.sector.Sector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sector</span></code></a>: The main workhorse sector of the model. It
+contains only on kind of data, namely the agents responsible for holding assets and
+investing in new assets.</p></li>
+<li><p><a class="reference internal" href="#muse.sectors.preset_sector.PresetSector" title="muse.sectors.preset_sector.PresetSector"><code class="xref py py-class docutils literal notranslate"><span class="pre">PresetSector</span></code></a>: A sector that is meant to generate
+demand for the sectors above using a fixed formula or schedule.</p></li>
+<li><p><a class="reference internal" href="#muse.sectors.legacy_sector.LegacySector" title="muse.sectors.legacy_sector.LegacySector"><code class="xref py py-class docutils literal notranslate"><span class="pre">LegacySector</span></code></a>: A wrapper around the original MUSE
+sectors.</p></li>
+</ul>
+<p>All the sectors derive from <a class="reference internal" href="#muse.sectors.AbstractSector" title="muse.sectors.AbstractSector"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractSector</span></code></a>. The <a class="reference internal" href="#muse.sectors.AbstractSector" title="muse.sectors.AbstractSector"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractSector</span></code></a> defines
+two <a class="reference external" href=":https://docs.python.org/3/library/abc.html">abstract</a> functions which should be declared by derived sectors. <a class="reference external" href=":https://www.python-course.eu/python3_abstract_classes.php">Abstract</a>
+here means a common programming practice where some concept in the code (e.g. a sector)
+is given an explicit interface, with the goal of making it easier for other programmers
+to use and implement the concept.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#muse.sectors.AbstractSector.factory" title="muse.sectors.AbstractSector.factory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AbstractSector.factory()</span></code></a>: Creates a sector from input data</p></li>
+<li><p><a class="reference internal" href="#muse.sectors.AbstractSector.next" title="muse.sectors.AbstractSector.next"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AbstractSector.next()</span></code></a>: A function which takes a market (demand, supply,
+prices) and returns a market.  What happens within could be anything, though it will
+likely constists of dispatch and investment.</p></li>
+</ul>
+<p>New sectors can be registered with the MUSE input files using
+<a class="reference internal" href="#muse.sectors.register.register_sector" title="muse.sectors.register.register_sector"><code class="xref py py-func docutils literal notranslate"><span class="pre">muse.sectors.register.register_sector()</span></code></a>.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="muse.sectors.AbstractSector">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">AbstractSector</span></span><a class="reference internal" href="../_modules/muse/sectors/abstract.html#AbstractSector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.AbstractSector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Abstract base class for sectors.</p>
+<p>Sectors are part of type hierarchy with <a class="reference internal" href="#muse.sectors.AbstractSector" title="muse.sectors.AbstractSector"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractSector</span></code></a> at the apex: all
+sectors should derive from <a class="reference internal" href="#muse.sectors.AbstractSector" title="muse.sectors.AbstractSector"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractSector</span></code></a> directly or indirectly.</p>
+<p>MUSE only requires two things of a sector. Sector should be instanstiable via a
+<a class="reference internal" href="#muse.sectors.AbstractSector.factory" title="muse.sectors.AbstractSector.factory"><code class="xref py py-meth docutils literal notranslate"><span class="pre">factory()</span></code></a> function. And they should be callable via
+<a class="reference internal" href="#muse.sectors.AbstractSector.next" title="muse.sectors.AbstractSector.next"><code class="xref py py-meth docutils literal notranslate"><span class="pre">next()</span></code></a>.</p>
+<p><a class="reference internal" href="#muse.sectors.AbstractSector" title="muse.sectors.AbstractSector"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractSector</span></code></a> declares an interface with these two functions. Sectors
+which derive from it will be warned if either method is not implemented.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.AbstractSector.factory">
+<em class="property"><span class="pre">abstract</span> <span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">factory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/abstract.html#AbstractSector.factory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.AbstractSector.factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates class from settings named-tuple.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.AbstractSector.next">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mca_market</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/abstract.html#AbstractSector.next"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.AbstractSector.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Advance sector by one time period.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">LegacySector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_sector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeslices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commodities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commodity_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">static_trade</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_framework</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">market_iterative</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sectors_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/legacy_sector.html#LegacySector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.LegacySector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#muse.sectors.abstract.AbstractSector" title="muse.sectors.abstract.AbstractSector"><code class="xref py py-class docutils literal notranslate"><span class="pre">muse.sectors.abstract.AbstractSector</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.calibrated">
+<span class="sig-name descname"><span class="pre">calibrated</span></span><a class="headerlink" href="#muse.sectors.LegacySector.calibrated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag if the sector has gone through the calibration process.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.commodities">
+<span class="sig-name descname"><span class="pre">commodities</span></span><a class="headerlink" href="#muse.sectors.LegacySector.commodities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Commodities for each sector, as well as global commodities.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.commodity_price">
+<span class="sig-name descname"><span class="pre">commodity_price</span></span><a class="headerlink" href="#muse.sectors.LegacySector.commodity_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initial price of all the commodities.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.dims">
+<span class="sig-name descname"><span class="pre">dims</span></span><a class="headerlink" href="#muse.sectors.LegacySector.dims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Order of the input and output dimensions.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.excess">
+<span class="sig-name descname"><span class="pre">excess</span></span><a class="headerlink" href="#muse.sectors.LegacySector.excess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allowed excess of capacity.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.factory">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">factory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/legacy_sector.html#LegacySector.factory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.LegacySector.factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates class from settings named-tuple.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.global_commodities">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">global_commodities</span></span><a class="headerlink" href="#muse.sectors.LegacySector.global_commodities" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all commodities used by the MCA.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.inputs">
+<span class="sig-name descname"><span class="pre">inputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">consumption</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supply</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/legacy_sector.html#LegacySector.inputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.LegacySector.inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts xarray to MUSE numpy input arrays.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.load_timeslices_and_aggregation">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">load_timeslices_and_aggregation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeslices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sectors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/legacy_sector.html#LegacySector.load_timeslices_and_aggregation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.LegacySector.load_timeslices_and_aggregation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads all sector timeslices and finds the finest one.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.market_iterative">
+<span class="sig-name descname"><span class="pre">market_iterative</span></span><a class="headerlink" href="#muse.sectors.LegacySector.market_iterative" title="Permalink to this definition">¶</a></dt>
+<dd><p>—–&gt; TODO what’s this parameter?</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.mode">
+<span class="sig-name descname"><span class="pre">mode</span></span><a class="headerlink" href="#muse.sectors.LegacySector.mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>If ‘Calibration’, the sector runs in calibration mode</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#muse.sectors.LegacySector.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the sector</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.next">
+<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">market</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/legacy_sector.html#LegacySector.next"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.LegacySector.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adapter between the old and the new.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.old_sector">
+<span class="sig-name descname"><span class="pre">old_sector</span></span><a class="headerlink" href="#muse.sectors.LegacySector.old_sector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Legacy sector method to run the calculation</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.output_dir">
+<span class="sig-name descname"><span class="pre">output_dir</span></span><a class="headerlink" href="#muse.sectors.LegacySector.output_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Outputs directory.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.outputs">
+<span class="sig-name descname"><span class="pre">outputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">consumption</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supply</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/legacy_sector.html#LegacySector.outputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.LegacySector.outputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts MUSE numpy outputs to xarray.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.regions">
+<span class="sig-name descname"><span class="pre">regions</span></span><a class="headerlink" href="#muse.sectors.LegacySector.regions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Regions taking part in the simulation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.runprocessmodule">
+<span class="sig-name descname"><span class="pre">runprocessmodule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">consumption</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supplycost</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supply</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/legacy_sector.html#LegacySector.runprocessmodule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.LegacySector.runprocessmodule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.sector_commodities">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sector_commodities</span></span><a class="headerlink" href="#muse.sectors.LegacySector.sector_commodities" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all commodities used by the Sector.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.sector_timeslices">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sector_timeslices</span></span><a class="headerlink" href="#muse.sectors.LegacySector.sector_timeslices" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all commodities used by the MCA.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.sectors_dir">
+<span class="sig-name descname"><span class="pre">sectors_dir</span></span><a class="headerlink" href="#muse.sectors.LegacySector.sectors_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sectors directory.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.static_trade">
+<span class="sig-name descname"><span class="pre">static_trade</span></span><a class="headerlink" href="#muse.sectors.LegacySector.static_trade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Static trade needed for the conversion and supply sectors.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.time_framework">
+<span class="sig-name descname"><span class="pre">time_framework</span></span><a class="headerlink" href="#muse.sectors.LegacySector.time_framework" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time framework of the complete simulation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.LegacySector.timeslices">
+<span class="sig-name descname"><span class="pre">timeslices</span></span><a class="headerlink" href="#muse.sectors.LegacySector.timeslices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timeslices for sectors and mca.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="muse.sectors.PresetSector">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">PresetSector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">presets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'preset'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/preset_sector.html#PresetSector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.PresetSector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#muse.sectors.abstract.AbstractSector" title="muse.sectors.abstract.AbstractSector"><code class="xref py py-class docutils literal notranslate"><span class="pre">muse.sectors.abstract.AbstractSector</span></code></a></p>
+<p>Sector with outcomes fixed from the start.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.PresetSector.factory">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">factory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/preset_sector.html#PresetSector.factory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.PresetSector.factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a PresetSectors from input data.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.PresetSector.interpolation_mode">
+<span class="sig-name descname"><span class="pre">interpolation_mode</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></em><a class="headerlink" href="#muse.sectors.PresetSector.interpolation_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolation method</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.PresetSector.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#muse.sectors.PresetSector.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name by which to identify a sector</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.PresetSector.next">
+<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mca_market</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/preset_sector.html#PresetSector.next"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.PresetSector.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Advance sector by one time period.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.PresetSector.presets">
+<span class="sig-name descname"><span class="pre">presets</span></span><em class="property"><span class="pre">:</span> <span class="pre">xarray.core.dataset.Dataset</span></em><a class="headerlink" href="#muse.sectors.PresetSector.presets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Market across time and space.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="muse.sectors.Sector">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Sector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">technologies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subsectors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeslices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">technodata_timeslices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interactions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supply_prod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/sector.html#Sector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.Sector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#muse.sectors.abstract.AbstractSector" title="muse.sectors.abstract.AbstractSector"><code class="xref py py-class docutils literal notranslate"><span class="pre">muse.sectors.abstract.AbstractSector</span></code></a></p>
+<p>Base class for all sectors.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="muse.sectors.Sector.agents">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">agents</span></span><em class="property"><span class="pre">:</span> <span class="pre">Iterator[muse.agents.agent.AbstractAgent]</span></em><a class="headerlink" href="#muse.sectors.Sector.agents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterator over all agents in the sector.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="muse.sectors.Sector.capacity">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">capacity</span></span><em class="property"><span class="pre">:</span> <span class="pre">xarray.core.dataarray.DataArray</span></em><a class="headerlink" href="#muse.sectors.Sector.capacity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aggregates capacity across agents.</p>
+<p>The capacities are aggregated leaving only two
+dimensions: asset (technology, installation date,
+region), year.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.Sector.convert_market_timeslice">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">convert_market_timeslice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">market</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeslice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intensive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'prices'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/sector.html#Sector.convert_market_timeslice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.Sector.convert_market_timeslice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts market from one to another timeslice.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.Sector.factory">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">factory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/sector.html#Sector.factory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.Sector.factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates class from settings named-tuple.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="muse.sectors.Sector.forecast">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">forecast</span></span><a class="headerlink" href="#muse.sectors.Sector.forecast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum forecast horizon across agents.</p>
+<p>If no agents with a “forecast” attribute are found, defaults to 5. It cannot be
+lower than 1 year.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.Sector.interactions">
+<span class="sig-name descname"><span class="pre">interactions</span></span><a class="headerlink" href="#muse.sectors.Sector.interactions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interactions between agents.</p>
+<p>Called right before computing new investments, this function should manage any
+interactions between agents, e.g. passing assets from <em>new</em> agents  to <em>retro</em>
+agents, and maket make-up from <em>retro</em> to <em>new</em>.</p>
+<p>Defaults to doing nothing.</p>
+<p>The function takes the sequence of agents as input, and returns nothing. It is
+expected to modify the agents in-place.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../api.html#module-muse.interactions" title="muse.interactions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">muse.interactions</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.Sector.interpolation">
+<span class="sig-name descname"><span class="pre">interpolation</span></span><em class="property"><span class="pre">:</span> <span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#muse.sectors.Sector.interpolation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolation method and arguments when computing years.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.Sector.market_variables">
+<span class="sig-name descname"><span class="pre">market_variables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">market</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">technologies</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/sector.html#Sector.market_variables"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.Sector.market_variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes resulting market: production, consumption, and costs.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.Sector.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="pre">:</span> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></em><a class="headerlink" href="#muse.sectors.Sector.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the sector.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="muse.sectors.Sector.next">
+<span class="sig-name descname"><span class="pre">next</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mca_market</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_year</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/sector.html#Sector.next"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.Sector.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Advance sector by one time period.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mca_market</strong> – Market with <code class="docutils literal notranslate"><span class="pre">demand</span></code>, <code class="docutils literal notranslate"><span class="pre">supply</span></code>, and <code class="docutils literal notranslate"><span class="pre">prices</span></code>.</p></li>
+<li><p><strong>time_period</strong> – Length of the time period in the framework. Defaults to the range of
+<code class="docutils literal notranslate"><span class="pre">mca_market.year</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A market containing the <code class="docutils literal notranslate"><span class="pre">supply</span></code> offered by the sector, it’s attendant
+<code class="docutils literal notranslate"><span class="pre">consumption</span></code> of fuels and materials and the associated <code class="docutils literal notranslate"><span class="pre">costs</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.Sector.outputs">
+<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="pre">:</span> <span class="pre">Callable</span></em><a class="headerlink" href="#muse.sectors.Sector.outputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function for outputing data for post-mortem analysis.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.Sector.subsectors">
+<span class="sig-name descname"><span class="pre">subsectors</span></span><em class="property"><span class="pre">:</span> <span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#muse.sectors.subsector.Subsector" title="muse.sectors.subsector.Subsector"><span class="pre">muse.sectors.subsector.Subsector</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#muse.sectors.Sector.subsectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subsectors controlled by this object.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.Sector.supply_prod">
+<span class="sig-name descname"><span class="pre">supply_prod</span></span><a class="headerlink" href="#muse.sectors.Sector.supply_prod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes production as used to return the supply to the MCA.</p>
+<p>It can be anything registered with
+<a class="reference internal" href="../api.html#muse.production.register_production" title="muse.production.register_production"><code class="xref py py-func docutils literal notranslate"><span class="pre">&#64;register_production</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.Sector.technologies">
+<span class="sig-name descname"><span class="pre">technologies</span></span><em class="property"><span class="pre">:</span> <span class="pre">xarray.core.dataset.Dataset</span></em><a class="headerlink" href="#muse.sectors.Sector.technologies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parameters describing the sector’s technologies.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="muse.sectors.Sector.timeslices">
+<span class="sig-name descname"><span class="pre">timeslices</span></span><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">pandas.core.indexes.multi.MultiIndex</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#muse.sectors.Sector.timeslices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timeslice at which this sector operates.</p>
+<p>If None, it will operate using the timeslice of the input market.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="muse.sectors.register_sector">
+<span class="sig-name descname"><span class="pre">register_sector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sector_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/muse/sectors/register.html#register_sector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#muse.sectors.register_sector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a sector so it is available MUSE-wide.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">muse.sectors</span> <span class="kn">import</span> <span class="n">AbstractSector</span><span class="p">,</span> <span class="n">register_sector</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@register_sector</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;MyResidence&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">class</span> <span class="nc">ResidentialSector</span><span class="p">(</span><span class="n">AbstractSector</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">pass</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">muse.sectors package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-muse.sectors.abstract">muse.sectors.abstract module</a></li>
+<li><a class="reference internal" href="#module-muse.sectors.legacy_sector">muse.sectors.legacy_sector module</a></li>
+<li><a class="reference internal" href="#module-muse.sectors.preset_sector">muse.sectors.preset_sector module</a></li>
+<li><a class="reference internal" href="#module-muse.sectors.register">muse.sectors.register module</a></li>
+<li><a class="reference internal" href="#module-muse.sectors.sector">muse.sectors.sector module</a></li>
+<li><a class="reference internal" href="#module-muse.sectors.subsector">muse.sectors.subsector module</a></li>
+<li><a class="reference internal" href="#module-muse.sectors">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/source/muse.sectors.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MUSE 0.9 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">muse.sectors package</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Sustainable Gas Institute.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.1.
+    </div>
+  </body>
+</html>
