@@ -57,5 +57,5 @@ bibtex_bibfiles = []
 
 # -- Options for HTML output -------------------------------------------------
 
-html_theme = "classic"
+html_theme = "default"
 html_static_path = ["_static"]
