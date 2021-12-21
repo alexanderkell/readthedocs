@@ -1,4 +1,4 @@
-.. _inputs-icomms:
+.. _inputs-iocomms:
 
 =================
 Input Commodities
@@ -8,8 +8,6 @@ technology.  They are defined in a csv file which describes the commodity inputs
 technology, calculated per unit of technology activity. See :ref:`below
 <inputs-iocomms>` for a description.
 
-
-.. _inputs-ocomms:
 
 ==================
 Output Commodities
@@ -21,9 +19,6 @@ each technology, defined per unit of technology activity. Emissions, such as CO2
 (produced from fuel combustion and reactions), CH4, N2O, F-gases, can also be accounted
 for in this file. See :ref:`below <inputs-iocomms>` for a description.
 
-
-
-.. _inputs-iocomms:
 
 ==================
 General features
